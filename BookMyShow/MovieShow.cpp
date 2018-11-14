@@ -3,6 +3,14 @@
 
 using namespace std;
 
+std::string MovieShow::getID() const {
+	return show_id;
+}
+
+std::string MovieShow::getMovieID() const {
+	return movie_id;
+}
+
 vector<int> MovieShow::bookSeats(int count, int start_seat) {
 	vector<int> booked_seats(count);
 	if (available_seats < count) throw BookingErrors::SEATS_NOT_AVAILABLE;
@@ -28,4 +36,13 @@ vector<int> MovieShow::bookSeats(int count) {
 	}
 	available_seats -= count;
 	return booked_seats;
+}
+
+std::ostream &operator<<(std::ostream &out, const MovieShow &show) {
+	out << "___________________" << std::endl;
+	out << show.show_id << std::endl;
+	out << show.movie_id << std::endl;
+	out << show.show_time << std::endl;
+	out << "-------------------" << std::endl;
+	return out;
 }

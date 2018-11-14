@@ -2,7 +2,7 @@
 
 enum LanguageType { HINDI, ENGLISH, TELUGU, MISC};
 
-enum ShowTiming {
+enum class ShowTiming {
 	MORNING,
 	MATINEE,
 	FIRST_SHOW,
@@ -12,3 +12,11 @@ enum ShowTiming {
 enum BookingErrors {
 	SEATS_NOT_AVAILABLE
 };
+
+enum TheaterErrors {
+	SCREEN_ALREADY_IN_USE,
+	SHOW_ALREADY_REMOVED,
+	SLOTS_NOT_AVAILABLE
+};
+
+std::ostream &operator<<(std::ostream &out, const ShowTiming &time);
